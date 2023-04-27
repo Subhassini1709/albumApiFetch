@@ -14,12 +14,17 @@ import com.example.musicalbum.R
 import com.google.gson.Gson
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import android.widget.AdapterView.OnItemClickListener
+
+
+
 
 class MusicAdapter(
     private val context: Context,
     private var musicList: ArrayList<Music>,
-    private val api: Api
+    private val api: Api,
 ) : RecyclerView.Adapter<MusicAdapter.MusicViewHolder>() {
+
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

@@ -3,7 +3,7 @@ package com.example.musicalbum.Model
 data class Music (
     val id: Int,
     val title: String,
-    val photos: List<Photo>? //to include 0 photos
+    val photos: List<Photo>?
 )
 
 data class Photo(
