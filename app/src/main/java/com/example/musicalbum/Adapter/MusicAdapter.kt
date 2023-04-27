@@ -38,21 +38,11 @@ class MusicAdapter(
     override fun onBindViewHolder(holder: MusicAdapter.MusicViewHolder, position: Int) {
         val music = musicList[position]
         holder.albumTitle.text = music.title
-
         holder.itemView.setOnClickListener {
-            api.getAlbumPhotos(music.id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ photos ->
-                    val gson = Gson()
-                    val jsonPhotos = gson.toJson(photos)
-                    val intent = Intent(context, PhotoActivity::class.java)
-                    intent.putExtra("photos", jsonPhotos)
-                    context.startActivity(intent)
-                }, { t ->
-                    Toast.makeText(context, "Error loading photos", Toast.LENGTH_SHORT).show()
-                    Log.e("MusicAdapter", "Error loading photos", t)
-                })
+            val intent = Intent(context, PhotoActivity::class.java)
+            intent.putExtra("albumId", music.id)
+            context.startActivity(intent)
+
         }
     }
 

@@ -1,5 +1,4 @@
 package com.example.musicalbum.Activity
-
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,20 +21,20 @@ class PhotoActivity : AppCompatActivity() {
     private lateinit var photoAdapter: PhotoAdapter
     private lateinit var recyclerView: RecyclerView
     private val disposable = CompositeDisposable()
-    private val api: Api = RetrofitInstance.photoApi
+    private val api: Api = RetrofitInstance.api
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.album_photos)
 
-        val jsonPhotos = intent.getStringExtra("photos")
+        /*val jsonPhotos = intent.getStringExtra("photos")
         val gson = Gson()
         val type = object : TypeToken<ArrayList<Photo>>() {}.type
-        photoList = gson.fromJson(jsonPhotos, type)
+        photoList = gson.fromJson(jsonPhotos, type)*/
 
         recyclerView = findViewById(R.id.photo_recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this@PhotoActivity)
         photoAdapter = PhotoAdapter(photoList)
         recyclerView.adapter = photoAdapter
 

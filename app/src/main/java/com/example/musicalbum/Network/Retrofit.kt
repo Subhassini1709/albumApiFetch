@@ -14,11 +14,11 @@ object RetrofitInstance {
 
     val api: Api = retrofit.create(Api::class.java)
 
-    private val photoRetrofit = Retrofit.Builder()
+    /*private val photoRetrofit = Retrofit.Builder()
         .baseUrl("https://jsonplaceholder.typicode.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .build()
 
-    val photoApi: Api = photoRetrofit.create(Api::class.java)
+    val photoApi: Api = photoRetrofit.create(Api::class.java)*/
 }
