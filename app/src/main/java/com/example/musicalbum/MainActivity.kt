@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        musicAdapter = MusicAdapter(this, ArrayList<Music>(), api) 
+        musicAdapter = MusicAdapter(this, ArrayList<Music>(), api)
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.apply{
             setHasFixedSize(true)

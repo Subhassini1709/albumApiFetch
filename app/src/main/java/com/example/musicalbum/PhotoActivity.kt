@@ -22,7 +22,8 @@ class PhotoActivity : AppCompatActivity() {
     private lateinit var photoAdapter: PhotoAdapter
     private lateinit var recyclerView: RecyclerView
     private val disposable = CompositeDisposable()
-    private val api: Api = RetrofitInstance.api
+    private val api: Api = RetrofitInstance.photoApi
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +49,7 @@ class PhotoActivity : AppCompatActivity() {
 
     private fun loadPhotos(albumId: Int) {
         disposable.add(
-            api.getAlbumPhotos(albumId)
+                api.getAlbumPhotos(albumId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
